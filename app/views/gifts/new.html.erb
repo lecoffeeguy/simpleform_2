@@ -1,0 +1,24 @@
+<h1>Buy A Gift</h1>
+<hr>
+<%= form_for @gift do |f| %>
+  <% if @gift.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@gift.errors.count, "error") %> prohibited
+          this article from being saved:
+        </h2>
+        <ul>
+          <% @gift.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  Fname Receiver: <%= f.text_field :fname2 %><br />
+  Lname Receiver: <%= f.text_field :lname2 %><br />
+  Message: <%= f.text_area :message %><br />
+  Fname Gifter: <%= f.text_field :fname1 %><br />
+  Lname Gifter: <%= f.text_field :lname1 %><br />
+  Email Gifter: <%= f.text_field :email %><br />
+  <%= f.submit %>
+<% end %>
